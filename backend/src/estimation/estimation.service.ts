@@ -3,6 +3,7 @@ import { CreateEstimationDto } from './dto/create-estimation.dto';
 import { Repository } from 'typeorm';
 import { EstimationEntity } from './entities/estimation.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import { EstimationDto } from './dto/estimation.dto';
 
 @Injectable()
 export class EstimationService {
@@ -11,12 +12,23 @@ export class EstimationService {
     private readonly estimationRepository: Repository<EstimationEntity>,
   ) {}
 
-  create(createEstimationDto: CreateEstimationDto) {
-    const estimationEntity: EstimationEntity = { ...createEstimationDto };
-    return this.estimationRepository.insert(estimationEntity);
+  async create(
+    createEstimationDto: CreateEstimationDto,
+  ): Promise<EstimationDto> {
+    const createEstimationEntity: EstimationEntity = { ...createEstimationDto };
+    const result: Promise<EstimationEntity> = this.estimationRepository.save(
+      createEstimationEntity,
+    );
+    const resultEstimationDto: EstimationDto = { ...(await result) };
+    return resultEstimationDto;
   }
 
-  findAll() {
-    return this.estimationRepository.find();
+  async findAll(): Promise<EstimationDto[]> {
+    const result: Promise<EstimationEntity[]> =
+      this.estimationRepository.find();
+    const resultEstimationDto: EstimationDto[] = (await result).map(
+      (estimationEntity: EstimationEntity) => ({ ...estimationEntity }),
+    );
+    return resultEstimationDto;
   }
 }
