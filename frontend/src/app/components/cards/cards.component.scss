@@ -2,9 +2,12 @@
     display: flex;  
     flex-direction: row;
     flex-flow: wrap;
-    justify-content: center;
+    justify-content: space-around;
+    max-width: 40rem;
+    gap: 1rem;
 }
 
-app-card {
-    margin: 5px;
+#cards-container {
+    display: flex;
+    justify-content: center;
 }
