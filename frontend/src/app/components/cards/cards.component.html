@@ -1,0 +1,5 @@
+<div id="cards">
+  @for (value of values; track value) {
+    <app-card value="{{ value }}" [onClick]="submitValue(value)"/>
+  }
+</div>
