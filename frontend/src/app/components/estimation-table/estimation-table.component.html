@@ -1,0 +1,24 @@
+<div id="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th class="last-cell">Estimation</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (estimation of estimations; track estimation.name) {
+        <tr>
+          <td>{{ estimation.name }}</td>
+          <td class="last-cell">{{ estimation.size }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div id="actions-container">
+  <div id="actions">
+    <button (click)="deleteAction()">Delete Estimations</button>
+    <button (click)="showAction()">Show Estimations</button>
+  </div>
+</div>

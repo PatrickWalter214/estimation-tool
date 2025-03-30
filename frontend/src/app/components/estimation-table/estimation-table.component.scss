@@ -1,0 +1,51 @@
+#actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    max-width: 40rem;
+    width: 100%;
+    flex-wrap: wrap-reverse;
+    button {
+        width: 10rem;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+#actions-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: 40rem;
+    border-collapse: collapse;
+}
+
+tr {
+    text-align: left;
+    font-size: 1.5rem;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid black;
+}
+
+th, td {
+    padding: 0 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.last-cell {
+    text-align: right;
+    width: 8rem;
+}
+
+#table-container {
+    display: flex;
+    justify-content: center;
+}
