@@ -10,7 +10,7 @@ import { CardComponent } from "../card/card.component";
 export class CardsComponent {
 
   @Input() values: string[] = [];
-  @Input() submitValueOfCard = (value: string) => {};
+  @Input() submitValueOfCard = (_value: string) => {};
 
   submitValue(value: string): () => void {
     return () => this.submitValueOfCard(value);
